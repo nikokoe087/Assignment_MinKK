@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Bean Boutique Logo">
+        <span>Bean Boutique</span>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="coffee.html">Coffee</a></li>
+        <li><a href="equipment.html">Equipment</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li>
+          <a href="cart.html" class="cart-link active">
+            <i class="fas fa-shopping-cart"></i> Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section class="coffee-hero-banner" style="background-image: url('../images/image1.jpg'); height: 30vh;">
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <h1>Your Shopping Cart</h1>
+      <p>Review your selected coffee, equipment, and subscription plans.</p>
+    </div>
+  </section>
+  <section class="cart-page-section">
+    <div class="cart-container">
+      <div class="cart-items-wrapper">
+        <div class="cart-header-actions">
+          <h2>Selected Items</h2>
+          <button class="clear-cart-btn" onclick="clearAllCart()"><i class="fas fa-trash-alt"></i> Clear Cart</button>
+        </div>
+        <div id="cart-items-list">
+        </div>
+      </div>
+      <div class="cart-summary-wrapper">
+        <h3>Order Summary</h3>
+        
+        <div class="coupon-box">
+          <input type="text" id="coupon-code" placeholder="Promo Code (e.g., BEAN40)">
+          <button onclick="applyCoupon()">Apply</button>
+        </div>
+        <p id="coupon-msg" class="coupon-msg"></p>
+
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="subtotal-price">$0.00</span>
+        </div>
+        <div class="summary-line" id="discount-row" style="display: none; color: #27ae60;">
+          <span>Discount (40% OFF)</span>
+          <span id="discount-price">-$0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Tax (5%)</span>
+          <span id="tax-price">$0.00</span>
+        </div>
+        <div class="summary-line total-line">
+          <span>Total</span>
+          <span id="total-price">$0.00</span>
+        </div>
+
+        <form id="checkout-form" class="checkout-form" onsubmit="handleCheckout(event)">
+          <h4>Customer Details</h4>
+          <input type="text" id="cust-name" placeholder="Full Name" required>
+          <input type="email" id="cust-email" placeholder="Email Address" required>
+          <input type="tel" id="cust-phone" placeholder="Phone Number (09xxxxxxxxx)" required>
+          <textarea id="cust-address" placeholder="Delivery Address" rows="3" required></textarea>
+          
+          <button type="submit" class="btn btn-primary checkout-btn">Proceed to Checkout</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Bean Boutique</h3>
+        <p>Your sanctuary for premium coffee and brewing excellence.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="coffee.html">Coffee Menu</a></li>
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="events.html">Events & Workshops</a></li>
+          <li><a href="offers.html">Special Offers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Mon - Fri: 7:00 AM - 8:00 PM</p>
+        <p>Sat - Sun: 8:00 AM - 9:00 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bean Boutique. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

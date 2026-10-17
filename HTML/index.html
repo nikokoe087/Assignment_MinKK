@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean Boutique | Premium Coffee & Equipment</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Bean Boutique Logo">
+        <span>Bean Boutique</span>
+      </div>
+      
+      <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="coffee.html">Coffee</a></li>
+        <li><a href="equipment.html">Equipment</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i> Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero-section">
+    <div class="video-wrapper">
+      <video autoplay loop muted playsinline poster="../images/image1.jpg">
+        <source src="../video/bg-video.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="slideshow-container">
+      <div class="slide fade">
+        <span class="sub-title">Artisanal Coffee House</span>
+        <h1>Experience The Pure Essence Of Coffee</h1>
+        <p>Handcrafted brews, ethically sourced beans, and unforgettable moments in every cup.</p>
+        <div class="hero-btns">
+          <a href="coffee.html" class="btn btn-primary">Explore Menu</a>
+          <a href="offers.html" class="btn btn-outline">Special Offers</a>
+        </div>
+      </div>
+
+      <div class="slide fade">
+        <span class="sub-title">Freshly Roasted Daily</span>
+        <h1>Sourced From World-Class Coffee Farms</h1>
+        <p>Directly imported organic beans roasted to perfection by our master baristas.</p>
+        <div class="hero-btns">
+          <a href="offers.html" class="btn btn-primary">View Discounts</a>
+        </div>
+      </div>
+
+      <div class="slide fade">
+        <span class="sub-title">Brewing Perfection</span>
+        <h1>Premium Home Brewing Equipment</h1>
+        <p>Elevate your morning coffee routine with state-of-the-art grinders and machines.</p>
+        <div class="hero-btns">
+          <a href="equipment.html" class="btn btn-primary">Shop Equipment</a>
+        </div>
+      </div>
+      <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+  </section>
+  <section class="featured-section">
+    <div class="section-header">
+      <h2>Our Signature Brews</h2>
+      <p>Discover our customer favorites prepared by expert baristas</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img">
+          <img src="../images/image1.jpg" alt="Espresso Special">
+        </div>
+        <div class="card-info">
+          <h3>Espresso Intense</h3>
+          <p>Rich, bold, and concentrated single-origin brew with thick crema.</p>
+          <div class="card-bottom">
+            <span class="price">$4.50</span>
+            <button class="card-btn add-to-cart-btn" data-title="Espresso Intense" data-price="4.50" data-img="../images/image1.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="../images/image2.jpg" alt="Velvet Latte">
+        </div>
+        <div class="card-info">
+          <h3>Velvet Latte</h3>
+          <p>Smooth espresso combined with steamed oat milk and vanilla bean.</p>
+          <div class="card-bottom">
+            <span class="price">$5.50</span>
+            <button class="card-btn add-to-cart-btn" data-title="Velvet Latte" data-price="5.50" data-img="../images/image2.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="../images/image3.jpg" alt="Cold Brew Reserve">
+        </div>
+        <div class="card-info">
+          <h3>Cold Brew Reserve</h3>
+          <p>Steeped for 24 hours for a naturally sweet and low-acid flavor.</p>
+          <div class="card-bottom">
+            <span class="price">$6.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Cold Brew Reserve" data-price="6.00" data-img="../images/image3.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="../images/image4.jpg" alt="Caramel Macchiato">
+        </div>
+        <div class="card-info">
+          <h3>Caramel Macchiato</h3>
+          <p>Freshly steamed milk with caramel drizzle over rich espresso.</p>
+          <div class="card-bottom">
+            <span class="price">$5.80</span>
+            <button class="card-btn add-to-cart-btn" data-title="Caramel Macchiato" data-price="5.80" data-img="../images/image4.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="story-section">
+    <div class="story-container">
+      <div class="story-image">
+        <img src="../images/image5.jpg" alt="Our Craftsmanship">
+      </div>
+      <div class="story-text">
+        <span class="tag">Since 2020</span>
+        <h2>Crafted With Passion & Precision</h2>
+        <p>Every coffee bean at Bean Boutique is handpicked from sustainable coffee farms across Colombia, Ethiopia, and Guatemala. Our master roasters bring out unique aroma notes to ensure perfection in every single cup.</p>
+        <ul class="story-features">
+          <li><i class="fas fa-check-circle"></i> 100% Organic Arabica Beans</li>
+          <li><i class="fas fa-check-circle"></i> Daily In-House Roasting</li>
+          <li><i class="fas fa-check-circle"></i> Certified Barista Masterclass</li>
+        </ul>
+        <a href="events.html" class="btn btn-primary">Join Workshop</a>
+      </div>
+    </div>
+  </section>
+  <section class="banner-section" style="background-image: linear-gradient(rgba(26, 18, 11, 0.75), rgba(26, 18, 11, 0.75)), url('../images/image6.jpg');">
+    <div class="banner-content">
+      <h2>Elevate Your Home Brewing Experience</h2>
+      <p>Get premium espresso machines, grinders, and pour-over kits at exclusive prices.</p>
+      <a href="equipment.html" class="btn btn-gold">Shop Equipment</a>
+    </div>
+  </section>
+  <section class="gallery-section">
+    <div class="section-header">
+      <h2>Life At Bean Boutique</h2>
+      <p>Follow our daily moments and coffee aesthetic on Instagram</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../images/image7.jpg" alt="Gallery 1"></div>
+      <div class="gallery-item"><img src="../images/image8.jpg" alt="Gallery 2"></div>
+      <div class="gallery-item"><img src="../images/image9.jpg" alt="Gallery 3"></div>
+      <div class="gallery-item"><img src="../images/image10.jpg" alt="Gallery 4"></div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Bean Boutique</h3>
+        <p>Your sanctuary for premium coffee and brewing excellence.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="coffee.html">Coffee Menu</a></li>
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="events.html">Events & Workshops</a></li>
+          <li><a href="offers.html">Special Offers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Mon - Fri: 7:00 AM - 8:00 PM</p>
+        <p>Sat - Sun: 8:00 AM - 9:00 PM</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bean Boutique. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <div id="discount-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <div class="modal-body">
+        <i class="fas fa-gift gift-icon"></i>
+        <h2>Get 40% OFF Your First Order!</h2>
+        <p>Subscribe with your email address to claim your exclusive 40% discount promo code.</p>
+        <form id="newsletter-form" novalidate>
+          <div class="input-group">
+            <input type="email" id="user-email" placeholder="Enter your email address" required>
+            <p id="error-msg" class="error-msg"></p>
+          </div>
+          <button type="submit" class="modal-btn">Claim 40% OFF</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

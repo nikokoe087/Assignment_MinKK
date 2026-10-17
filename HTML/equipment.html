@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brewing Equipment | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Bean Boutique Logo">
+        <span>Bean Boutique</span>
+      </div>
+      <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="coffee.html">Coffee</a></li>
+        <li><a href="equipment.html">Equipment</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i> Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section class="coffee-hero-banner" style="background-image: url('../images/image6.jpg');">
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <span class="sub-title">Brewing Gear & Accessories</span>
+      <h1>Professional Coffee Equipment</h1>
+      <p>Discover high-performance machines, grinders, and manual pour-over tools.</p>
+    </div>
+  </section>
+  <div class="search-filter-section">
+    <div class="search-wrapper">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="equipment-search" placeholder="Search machines, grinders, pour-over..." onkeyup="filterEquipment()">
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">All Gear</button>
+      <button class="filter-btn" onclick="filterCategory('machine', this)">Machines</button>
+      <button class="filter-btn" onclick="filterCategory('manual', this)">Manual Tools</button>
+    </div>
+  </div>
+  <section class="featured-section">
+    <div class="cards-grid" id="equipment-grid">
+      <div class="card equipment-card" data-category="machine" data-title="Pro Espresso Machine">
+        <div class="card-img"><img src="../images/image17.jpg" alt="Pro Espresso Machine"></div>
+        <div class="card-info">
+          <span class="badge">Machine</span>
+          <h2>Pro Espresso Machine</h2>
+          <p>Dual-boiler commercial grade machine with digital PID temperature control.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Pro Espresso Machine', '../images/image17.jpg', 'Dual-boiler system for simultaneous extraction and milk steaming. Built-in PID controller ensures accurate water temperature within 0.5°C.', '1. Fill the water tank with filtered water.\n2. Preheat the portafilter and grind fresh espresso beans.\n3. Tamp evenly with 30 lbs of pressure and lock portafilter into the group head.\n4. Start extraction (aim for 25-30 seconds for 1:2 ratio).')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$450.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Pro Espresso Machine" data-price="450.00" data-img="../images/image17.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card equipment-card" data-category="manual" data-title="Precision Burr Grinder">
+        <div class="card-img"><img src="../images/image18.jpg" alt="Precision Burr Grinder"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Manual / Electric</span>
+          <h3>Precision Burr Grinder</h3>
+          <p>40mm stainless steel conical burrs with 30 micro-adjustments.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Precision Burr Grinder', '../images/image18.jpg', 'High-carbon steel burrs preserve coffee aroma by minimizing friction heat during grinding.', '1. Adjust the grind size dial (1-10 for Espresso, 15-20 for Filter, 25-30 for French Press).\n2. Pour whole coffee beans into the hopper.\n3. Turn on power or rotate hand crank smoothly.\n4. Clean burrs weekly using the included brush.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$120.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Precision Burr Grinder" data-price="120.00" data-img="../images/image18.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card equipment-card" data-category="manual" data-title="Pour-Over Glass Drip Set">
+        <div class="card-img"><img src="../images/image19.jpg" alt="Pour-Over Glass Drip Set"></div>
+        <div class="card-info">
+          <span class="badge">Manual Tool</span>
+          <h3>Pour-Over Glass Drip Set</h3>
+          <p>Borosilicate heat-resistant glass dripper with stainless steel mesh filter.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Pour-Over Glass Drip Set', '../images/image19.jpg', 'Elegantly designed V-shaped glass dripper allowing optimal spiral water flow for maximum flavor extraction.', '1. Place paper filter in dripper and rinse with hot water.\n2. Add medium-coarse ground coffee (approx. 15g).\n3. Pour 50ml hot water (92°C) in circular motion and bloom for 30 seconds.\n4. Continuously pour remaining water slowly in spiral motions.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$35.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Pour-Over Glass Drip Set" data-price="35.00" data-img="../images/image19.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card equipment-card" data-category="manual" data-title="French Press Coffee Maker">
+        <div class="card-img"><img src="../images/image20.jpg" alt="French Press Coffee Maker"></div>
+        <div class="card-info">
+          <span class="badge">Manual Tool</span>
+          <h3>French Press Coffee Maker</h3>
+          <p>800ml double-wall glass press with fine mesh filtration system.</p>
+          <button class="details-link-btn" onclick="openDetailModal('French Press Coffee Maker', '../images/image20.jpg', 'Classic immersion brewing method that extracts rich natural oils and full-bodied coffee texture.', '1. Add 30g coarse ground coffee to the glass carafe.\n2. Pour 500ml hot water (94°C) and stir gently.\n3. Put plunger lid on and steep for 4 minutes.\n4. Slowly press plunger down smoothly and serve immediately.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$28.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="French Press Coffee Maker" data-price="28.00" data-img="../images/image20.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card equipment-card" data-category="manual" data-title="Gooseneck Electric Kettle">
+        <div class="card-img"><img src="../images/image21.jpg" alt="Gooseneck Electric Kettle"></div>
+        <div class="card-info">
+          <span class="badge">Machine</span>
+          <h3>Gooseneck Electric Kettle</h3>
+          <p>Variable temperature control kettle with precise pour spout for manual pour-overs.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Gooseneck Electric Kettle', '../images/image21.jpg', 'Ergonomic gooseneck spout allows 90-degree precise flow control. Includes hold-temperature feature up to 60 minutes.', '1. Fill kettle with water and place on base.\n2. Set target temperature (e.g., 92°C for pour-overs) using digital dial.\n3. Wait for beep signal when temperature is reached.\n4. Pour steadily over grounds using ergonomic handle.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$85.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Gooseneck Electric Kettle" data-price="85.00" data-img="../images/image21.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card equipment-card" data-category="machine" data-title="Automatic Milk Frother">
+        <div class="card-img"><img src="../images/image22.jpg" alt="Automatic Milk Frother"></div>
+        <div class="card-info">
+          <span class="badge">Machine</span>
+          <h3>Automatic Milk Frother</h3>
+          <p>Creates warm dense foam, light airy foam, or cold frothing at a button press.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Automatic Milk Frother', '../images/image22.jpg', 'Magnetic induction heating for silent and fast milk frothing. Non-stick coating interior for effortless cleaning.', '1. Pour cold whole milk or oat milk up to MAX line.\n2. Select foam setting (Warm Cappuccino, Warm Latte, or Cold Foam).\n3. Press start and wait 2 minutes for automatic shutoff.\n4. Pour microfoam onto brewed espresso.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$45.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Automatic Milk Frother" data-price="45.00" data-img="../images/image22.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card equipment-card" data-category="manual" data-title="Digital Barista Scale with Timer">
+        <div class="card-img"><img src="../images/image23.jpg" alt="Digital Barista Scale with Timer"></div>
+        <div class="card-info">
+          <span class="badge">Manual Tool</span>
+          <h3>Digital Barista Scale with Timer</h3>
+          <p>0.1g high-precision scale with built-in auto-timer and tare function.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Digital Barista Scale with Timer', '../images/image23.jpg', 'Crucial tool for accurate coffee-to-water brewing ratios. Includes heat-resistant silicone mat.', '1. Place brewer/cup on scale and press TARE button to reset to zero.\n2. Add coffee grounds and note weight.\n3. Start timer and begin pouring water.\n4. Stop timer when target liquid weight is reached.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$32.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Digital Barista Scale with Timer" data-price="32.00" data-img="../images/image23.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card equipment-card" data-category="manual" data-title="Moka Pot Stovetop Espresso">
+        <div class="card-img"><img src="../images/image24.jpg" alt="Moka Pot Stovetop Espresso"></div>
+        <div class="card-info">
+          <span class="badge">Manual Tool</span>
+          <h3>Moka Pot Stovetop Espresso</h3>
+          <p>Classic Italian 6-cup aluminum stovetop espresso maker.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Moka Pot Stovetop Espresso', '../images/image24.jpg', 'Uses steam pressure to force water through coffee grounds, producing intense espresso-style coffee.', '1. Fill bottom chamber with warm water up to safety valve.\n2. Insert funnel filter and fill with fine-medium ground coffee (do not tamp).\n3. Screw top chamber tightly and place on low-medium heat.\n4. Remove from heat as soon as coffee bubbles up completely into top chamber.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$25.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Moka Pot Stovetop Espresso" data-price="25.00" data-img="../images/image24.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card equipment-card" data-category="manual" data-title="Stainless Steel Coffee Tamper">
+        <div class="card-img"><img src="../images/image25.jpg" alt="Stainless Steel Coffee Tamper"></div>
+        <div class="card-info">
+          <span class="badge">Manual Tool</span>
+          <h3>Stainless Steel Coffee Tamper</h3>
+          <p>58mm heavy calibrated tamper with ergonomic wooden handle.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Stainless Steel Coffee Tamper', '../images/image25.jpg', 'Ensures flat and evenly compressed coffee pucks to prevent water channeling in espresso portafilters.', '1. Fill portafilter basket with ground coffee and distribute evenly.\n2. Place tamper vertically on top of coffee grounds.\n3. Apply steady downward pressure (approx 30 lbs).\n4. Give a slight twist before lifting tamper to polish puck surface.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$22.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Stainless Steel Coffee Tamper" data-price="22.00" data-img="../images/image25.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card equipment-card" data-category="manual" data-title="Stainless Steel Milk Pitcher">
+        <div class="card-img"><img src="../images/image26.jpg" alt="Stainless Steel Milk Pitcher"></div>
+        <div class="card-info">
+          <span class="badge">Manual Tool</span>
+          <h3>Stainless Steel Milk Pitcher</h3>
+          <p>600ml pitcher with precision spout designed specifically for latte art pouring.</p>
+          <button class="details-link-btn" onclick="openDetailModal('Stainless Steel Milk Pitcher', '../images/image26.jpg', 'Commercial grade 304 stainless steel pitcher with internal measurement markings for exact milk volume.', '1. Fill pitcher with cold milk up to spout notch base.\n2. Insert steam wand steam tip just under surface and tilt pitcher slightly.\n3. Steam until smooth microfoam texture is formed (60°C - 65°C).\n4. Swirl pitcher gently and pour latte art over espresso.')">
+            <i class="fas fa-info-circle"></i> View Usage & Details
+          </button>
+          <div class="card-bottom">
+            <span class="price">$18.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Stainless Steel Milk Pitcher" data-price="18.00" data-img="../images/image26.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+      <i class="fas fa-tools"></i>
+      <p>No equipment found matching your search.</p>
+    </div>
+  </section>
+  <div id="equipment-detail-modal" class="modal">
+    <div class="modal-content detail-modal-content">
+      <span class="close-btn" id="close-detail-modal">&times;</span>
+      <div class="detail-modal-body">
+        <img id="modal-eq-img" src="../images/image17.jpg" alt="Equipment Image">
+        <h2 id="modal-eq-title">Equipment Name</h2>
+        
+        <div class="detail-block">
+          <h3><i class="fas fa-sliders-h"></i> Overview & Features</h3>
+          <p id="modal-eq-desc">Description goes here...</p>
+        </div>
+
+        <div class="detail-block">
+          <h4><i class="fas fa-book-open"></i> How To Use (Instructions)</h4>
+          <p id="modal-eq-usage" style="white-space: pre-line;">Usage steps go here...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Bean Boutique</h3>
+        <p>Your sanctuary for premium coffee and brewing excellence.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="coffee.html">Coffee Menu</a></li>
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="events.html">Events & Workshops</a></li>
+          <li><a href="offers.html">Special Offers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Mon - Fri: 7:00 AM - 8:00 PM</p>
+        <p>Sat - Sun: 8:00 AM - 9:00 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bean Boutique. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

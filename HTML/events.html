@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events & Workshops | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Bean Boutique Logo">
+        <span>Bean Boutique</span>
+      </div>
+      <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="coffee.html">Coffee</a></li>
+        <li><a href="equipment.html">Equipment</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i> Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="coffee-hero-banner" style="background-image: url('../images/image5.jpg');">
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <span class="sub-title">Connect & Learn</span>
+      <h1>Events, Workshops & Tastings</h1>
+      <p>Join our barista masterclasses, cupping sessions, and meet international coffee roasters.</p>
+    </div>
+  </section>
+
+  <div class="search-filter-section">
+    <div class="search-wrapper">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="event-search" placeholder="Search workshops, tastings, roasters..." onkeyup="filterEvents()">
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">All Events</button>
+      <button class="filter-btn" onclick="filterCategory('tasting', this)">Coffee Tasting</button>
+      <button class="filter-btn" onclick="filterCategory('workshop', this)">Barista Workshop</button>
+      <button class="filter-btn" onclick="filterCategory('roaster', this)">Meet The Roaster</button>
+    </div>
+  </div>
+
+  <section class="featured-section">
+    <div class="cards-grid" id="events-grid">
+
+      <div class="card event-card" data-category="tasting" data-title="Artisanal Coffee Cupping & Tasting">
+        <div class="card-img"><img src="../images/image27.jpg" alt="Coffee Cupping Session"></div>
+        <div class="card-info">
+          <span class="badge">Coffee Tasting</span>
+          <h2 >Artisanal Coffee Cupping & Tasting</h2>
+          <p><i class="far fa-calendar-alt"></i> Saturday, Nov 15 | 10:00 AM - 12:00 PM</p>
+          <p><i class="fas fa-map-marker-alt"></i> Bean Boutique Tasting Room</p>
+          <p class="event-desc">Taste and score 6 rare single-origin beans from Ethiopia and Colombia with our lead Q-Grader.</p>
+          <div class="card-bottom">
+            <span class="price">$25.00 <small>/ seat</small></span>
+            <button class="btn btn-primary" onclick="openRegisterModal('Artisanal Coffee Cupping & Tasting', '$25.00')">Register Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card event-card" data-category="workshop" data-title="Home Barista & Pour-Over Masterclass">
+        <div class="card-img"><img src="../images/image28.jpg" alt="Home Barista Class"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Barista Workshop</span>
+          <h3>Home Barista & Pour-Over Masterclass</h3>
+          <p><i class="far fa-calendar-alt"></i> Sunday, Nov 22 | 2:00 PM - 5:00 PM</p>
+          <p><i class="fas fa-map-marker-alt"></i> Main Training Lab</p>
+          <p class="event-desc">Master grind size, water-to-coffee ratios, and pour techniques for V60 and Chemex.</p>
+          <div class="card-bottom">
+            <span class="price">$45.00 <small>/ seat</small></span>
+            <button class="btn btn-primary" onclick="openRegisterModal('Home Barista & Pour-Over Masterclass', '$45.00')">Register Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card event-card" data-category="roaster" data-title="Meet The Roaster: Ethiopian Origin Special">
+        <div class="card-img"><img src="../images/image29.jpg" alt="Meet The Roaster"></div>
+        <div class="card-info">
+          <span class="badge">Meet The Roaster</span>
+          <h3>Meet The Roaster: Ethiopian Origin Special</h3>
+          <p><i class="far fa-calendar-alt"></i> Friday, Dec 05 | 5:00 PM - 7:00 PM</p>
+          <p><i class="fas fa-map-marker-alt"></i> Main Lounge</p>
+          <p class="event-desc">An exclusive Q&A and storytelling evening with master coffee roaster Marcus Vance.</p>
+          <div class="card-bottom">
+            <span class="price">Free Admission</span>
+            <button class="btn btn-primary" onclick="openRegisterModal('Meet The Roaster: Ethiopian Origin Special', 'Free')">RSVP Seat</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card event-card" data-category="workshop" data-title="Latte Art & Milk Microfoam Workshop">
+        <div class="card-img"><img src="../images/image30.jpg" alt="Latte Art Workshop"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Barista Workshop</span>
+          <h3>Latte Art & Milk Microfoam Workshop</h3>
+          <p><i class="far fa-calendar-alt"></i> Saturday, Dec 12 | 1:00 PM - 4:00 PM</p>
+          <p><i class="fas fa-map-marker-alt"></i> Espresso Bar Station</p>
+          <p class="event-desc">Hands-on practical training for milk steaming and pouring hearts, rosettas, and tulips.</p>
+          <div class="card-bottom">
+            <span class="price">$55.00 <small>/ seat</small></span>
+            <button class="btn btn-primary" onclick="openRegisterModal('Latte Art & Milk Microfoam Workshop', '$55.00')">Register Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card event-card" data-category="tasting" data-title="Cold Brew & Nitro Coffee Flavor Discovery">
+        <div class="card-img"><img src="../images/image31.jpg" alt="Cold Brew Tasting"></div>
+        <div class="card-info">
+          <span class="badge">Coffee Tasting</span>
+          <h3>Cold Brew & Nitro Coffee Flavor Discovery</h3>
+          <p><i class="far fa-calendar-alt"></i> Sunday, Dec 20 | 3:00 PM - 4:30 PM</p>
+          <p><i class="fas fa-map-marker-alt"></i> Outdoor Garden Patio</p>
+          <p class="event-desc">Explore nitrogen-infused cold brews paired with artisan chocolate and pastries.</p>
+          <div class="card-bottom">
+            <span class="price">$20.00 <small>/ seat</small></span>
+            <button class="btn btn-primary" onclick="openRegisterModal('Cold Brew & Nitro Coffee Flavor Discovery', '$20.00')">Register Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card event-card" data-category="roaster" data-title="Sustainable Coffee Farming & Direct Trade">
+        <div class="card-img"><img src="../images/image32.jpg" alt="Coffee Farming Panel"></div>
+        <div class="card-info">
+          <span class="badge">Meet The Roaster</span>
+          <h3>Sustainable Coffee Farming & Direct Trade</h3>
+          <p><i class="far fa-calendar-alt"></i> Saturday, Jan 09 | 4:00 PM - 6:00 PM</p>
+          <p><i class="fas fa-map-marker-alt"></i> Conference Room</p>
+          <p class="event-desc">Panel discussion on eco-friendly coffee cultivation with local Guatemalan farm partners.</p>
+          <div class="card-bottom">
+            <span class="price">Free Admission</span>
+            <button class="btn btn-primary" onclick="openRegisterModal('Sustainable Coffee Farming & Direct Trade', 'Free')">RSVP Seat</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+      <i class="fas fa-calendar-times"></i>
+      <p>No events found matching your search.</p>
+    </div>
+  </section>
+  <div id="event-register-modal" class="modal">
+    <div class="modal-content detail-modal-content">
+      <span class="close-btn" id="close-event-modal">&times;</span>
+      <div class="modal-body">
+        <i class="fas fa-ticket-alt gift-icon"></i>
+        <h2>Event Registration</h2>
+        <p id="modal-event-title-display" class="highlight-title">Event Title Here</p>
+
+        <form id="event-reg-form" novalidate>
+          <div class="input-group">
+            <label><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="reg-name" placeholder="John Doe" required>
+          </div>
+
+          <div class="input-group">
+            <label><i class="fas fa-envelope"></i> Email Address</label>
+            <input type="email" id="reg-email" placeholder="example@gmail.com" required>
+          </div>
+
+          <div class="input-group">
+            <label><i class="fas fa-phone"></i> Phone Number</label>
+            <input type="tel" id="reg-phone" placeholder="09xxxxxxxxx" required>
+          </div>
+
+          <div class="input-group">
+            <label><i class="fas fa-users"></i> Number of Seats</label>
+            <select id="reg-seats">
+              <option value="1">1 Seat</option>
+              <option value="2">2 Seats</option>
+              <option value="3">3 Seats</option>
+              <option value="4">4 Seats</option>
+            </select>
+          </div>
+
+          <button type="submit" class="modal-btn">Confirm Registration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Bean Boutique</h3>
+        <p>Your sanctuary for premium coffee and brewing excellence.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="coffee.html">Coffee Menu</a></li>
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="events.html">Events & Workshops</a></li>
+          <li><a href="offers.html">Special Offers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Mon - Fri: 7:00 AM - 8:00 PM</p>
+        <p>Sat - Sun: 8:00 AM - 9:00 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bean Boutique. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

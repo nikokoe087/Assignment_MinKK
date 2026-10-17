@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Collection | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Bean Boutique Logo">
+        <span>Bean Boutique</span>
+      </div>
+      <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="coffee.html">Coffee</a></li>
+        <li><a href="equipment.html">Equipment</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i> Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section class="coffee-hero-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <span class="sub-title">Artisanal Selection</span>
+      <h1>Our Coffee & Roasted Beans</h1>
+      <p>Explore handcrafted espresso drinks and single-origin coffee bean bags.</p>
+    </div>
+  </section>
+  <div class="search-filter-section">
+    <div class="search-wrapper">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="coffee-search" placeholder="Search coffee drinks or bean bags..." onkeyup="filterCoffee()">
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">All Items</button>
+      <button class="filter-btn" onclick="filterCategory('brew', this)">Brewed Coffee</button>
+      <button class="filter-btn" onclick="filterCategory('beans', this)">Coffee Bean Bags</button>
+    </div>
+  </div>
+  <section class="featured-section">
+    <div class="cards-grid" id="coffee-grid">
+      <div class="card coffee-card" data-category="brew" data-title="Espresso Intense">
+        <div class="card-img"><img src="../images/image1.jpg" alt="Espresso Intense"></div>
+        <div class="card-info">
+          <span class="badge">Brewed</span>
+          <h2>Espresso Intense</h2>
+          <p>Rich, bold, and concentrated single-origin brew with thick crema.</p>
+          <div class="card-bottom">
+            <span class="price">$4.50</span>
+            <button class="card-btn add-to-cart-btn" data-title="Espresso Intense" data-price="4.50" data-img="../images/image1.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="brew" data-title="Velvet Latte">
+        <div class="card-img"><img src="../images/image2.jpg" alt="Velvet Latte"></div>
+        <div class="card-info">
+          <span class="badge">Brewed</span>
+          <h3>Velvet Latte</h3>
+          <p>Smooth espresso combined with steamed oat milk and vanilla bean.</p>
+          <div class="card-bottom">
+            <span class="price">$5.50</span>
+            <button class="card-btn add-to-cart-btn" data-title="Velvet Latte" data-price="5.50" data-img="../images/image2.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="brew" data-title="Cold Brew Reserve">
+        <div class="card-img"><img src="../images/image3.jpg" alt="Cold Brew Reserve"></div>
+        <div class="card-info">
+          <span class="badge">Brewed</span>
+          <h3>Cold Brew Reserve</h3>
+          <p>Steeped for 24 hours for a naturally sweet and low-acid flavor.</p>
+          <div class="card-bottom">
+            <span class="price">$6.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Cold Brew Reserve" data-price="6.00" data-img="../images/image3.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="brew" data-title="Caramel Macchiato">
+        <div class="card-img"><img src="../images/image4.jpg" alt="Caramel Macchiato"></div>
+        <div class="card-info">
+          <span class="badge">Brewed</span>
+          <h3>Caramel Macchiato</h3>
+          <p>Freshly steamed milk with caramel drizzle over rich espresso.</p>
+          <div class="card-bottom">
+            <span class="price">$5.80</span>
+            <button class="card-btn add-to-cart-btn" data-title="Caramel Macchiato" data-price="5.80" data-img="../images/image4.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="brew" data-title="Cappuccino Supreme">
+        <div class="card-img"><img src="../images/image11.jpg" alt="Cappuccino Supreme"></div>
+        <div class="card-info">
+          <span class="badge">Brewed</span>
+          <h3>Cappuccino Supreme</h3>
+          <p>Equal parts espresso, steamed milk, and dense creamy foam with cocoa dusting.</p>
+          <div class="card-bottom">
+            <span class="price">$5.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Cappuccino Supreme" data-price="5.00" data-img="../images/image11.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="beans" data-title="Ethiopian Yirgacheffe Beans">
+        <div class="card-img"><img src="../images/image12.jpg" alt="Ethiopian Yirgacheffe Beans"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Bean Bag (250g)</span>
+          <h3>Ethiopian Yirgacheffe Beans</h3>
+          <p>Light roast with floral jasmine notes and vibrant citrus acidity.</p>
+          <div class="card-bottom">
+            <span class="price">$18.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Ethiopian Yirgacheffe Beans" data-price="18.00" data-img="../images/image12.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="beans" data-title="Colombian Supremo Roast">
+        <div class="card-img"><img src="../images/image13.jpg" alt="Colombian Supremo Roast"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Bean Bag (250g)</span>
+          <h3>Colombian Supremo Roast</h3>
+          <p>Medium roast featuring rich chocolate undertones and nut aromas.</p>
+          <div class="card-bottom">
+            <span class="price">$16.50</span>
+            <button class="card-btn add-to-cart-btn" data-title="Colombian Supremo Roast" data-price="16.50" data-img="../images/image13.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="beans" data-title="Guatemala Antigua Reserve">
+        <div class="card-img"><img src="../images/image14.jpg" alt="Guatemala Antigua Reserve"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Bean Bag (250g)</span>
+          <h3>Guatemala Antigua Reserve</h3>
+          <p>Dark roast with smoky cocoa flavors and full-bodied finish.</p>
+          <div class="card-bottom">
+            <span class="price">$19.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="Guatemala Antigua Reserve" data-price="19.00" data-img="../images/image14.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card coffee-card" data-category="beans" data-title="House Blend Espresso Beans">
+        <div class="card-img"><img src="../images/image15.jpg" alt="House Blend Espresso Beans"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Bean Bag (500g)</span>
+          <h3>House Blend Espresso Beans</h3>
+          <p>Our signature balanced roast, perfect for home espresso brewing.</p>
+          <div class="card-bottom">
+            <span class="price">$25.00</span>
+            <button class="card-btn add-to-cart-btn" data-title="House Blend Espresso Beans" data-price="25.00" data-img="../images/image15.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card coffee-card" data-category="beans" data-title="Decaf Swiss Water Beans">
+        <div class="card-img"><img src="../images/image16.jpg" alt="Decaf Swiss Water Beans"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Bean Bag (250g)</span>
+          <h3>Decaf Swiss Water Beans</h3>
+          <p>100% chemical-free decaffeinated beans with rich caramel flavor.</p>
+          <div class="card-bottom">
+            <span class="price">$17.50</span>
+            <button class="card-btn add-to-cart-btn" data-title="Decaf Swiss Water Beans" data-price="17.50" data-img="../images/image16.jpg"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+      <i class="fas fa-mug-hot"></i>
+      <p>No coffee found matching your search.</p>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Bean Boutique</h3>
+        <p>Your sanctuary for premium coffee and brewing excellence.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="coffee.html">Coffee Menu</a></li>
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="events.html">Events & Workshops</a></li>
+          <li><a href="offers.html">Special Offers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Mon - Fri: 7:00 AM - 8:00 PM</p>
+        <p>Sat - Sun: 8:00 AM - 9:00 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bean Boutique. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

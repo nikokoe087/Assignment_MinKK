@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Offers & Membership | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Bean Boutique Logo">
+        <span>Bean Boutique</span>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="coffee.html">Coffee</a></li>
+        <li><a href="equipment.html">Equipment</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i> Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="coffee-hero-banner" style="background-image: url('../images/image2.jpg');">
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <span class="sub-title">Exclusive Deals & Memberships</span>
+      <h1>Special Offers & Subscription Plans</h1>
+      <p>Save more with our monthly coffee bean plans and seasonal bundle promotions.</p>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="section-header">
+      <h2>Coffee Subscription Packages</h2>
+      <p>Select a membership plan and get fresh artisanal beans delivered to your doorstep every month.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Basic Plan</h3>
+          <p class="pricing-desc">Perfect for casual home coffee drinkers.</p>
+          <div class="price-tag">$19<span>/month</span></div>
+        </div>
+        <ul class="benefits-list">
+          <li><i class="fas fa-check"></i> 1x 250g Artisanal Bean Bag / month</li>
+          <li><i class="fas fa-check"></i> 5% Off all store purchases</li>
+          <li><i class="fas fa-check"></i> Free standard shipping</li>
+          <li class="disabled"><i class="fas fa-times"></i> Access to VIP Roaster events</li>
+          <li class="disabled"><i class="fas fa-times"></i> Free monthly coffee tasting pass</li>
+        </ul>
+        <button onclick="openSubscriptionCheckout('Basic Plan', 19)" class="btn">Select Basic</button>
+      </div>
+      <div class="pricing-card featured-plan">
+        <span class="popular-tag">Most Popular</span>
+        <div class="pricing-header">
+          <h3>Classic Plan</h3>
+          <p class="pricing-desc">Ideal for daily espresso and filter lovers.</p>
+          <div class="price-tag">$35<span>/month</span></div>
+        </div>
+        <ul class="benefits-list">
+          <li><i class="fas fa-check"></i> 2x 250g Artisanal Bean Bags / month</li>
+          <li><i class="fas fa-check"></i> 10% Off all store purchases</li>
+          <li><i class="fas fa-check"></i> Free express shipping</li>
+          <li><i class="fas fa-check"></i> 1x Free Barista Workshop Pass / year</li>
+          <li class="disabled"><i class="fas fa-times"></i> Priority access to limited roasts</li>
+        </ul>
+        <button onclick="openSubscriptionCheckout('Classic Plan', 35)" class="btn">Select Classic</button>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Premium Plan</h3>
+          <p class="pricing-desc">Ultimate experience for true coffee connoisseurs.</p>
+          <div class="price-tag">$59<span>/month</span></div>
+        </div>
+        <ul class="benefits-list">
+          <li><i class="fas fa-check"></i> 4x 250g Exclusive Single-Origin Bags</li>
+          <li><i class="fas fa-check"></i> 20% Off all store & equipment purchases</li>
+          <li><i class="fas fa-check"></i> Free priority overnight shipping</li>
+          <li><i class="fas fa-check"></i> Free monthly Tasting Pass for 2</li>
+          <li><i class="fas fa-check"></i> Exclusive VIP "Meet The Roaster" events</li>
+        </ul>
+        <button onclick="openSubscriptionCheckout('Premium Plan', 59)" class="btn">Select Premium</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="section-header">
+      <h2>Seasonal Bundles & Discounts</h2>
+      <p>Limited-time combo offers and seasonal discounts.</p>
+    </div>
+
+    <div class="search-wrapper" style="max-width: 500px; margin: 0 auto 30px auto;">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search offer bundles...">
+    </div>
+
+    <div class="cards-grid">
+      <div class="card" data-title="weekend breakfast combo">
+        <div class="card-img"><img src="../images/image33.jpg" alt="Breakfast Combo"></div>
+        <div class="card-info">
+          <span class="badge">Combo Offer</span>
+          <h3>Weekend Breakfast Combo</h3>
+          <p>Any Signature Coffee + Fresh Bakery Croissant of your choice.</p>
+          <div class="card-bottom">
+            <span class="price">$8.00 <small style="text-decoration: line-through; color: #999;">$11.00</small></span>
+            <button class="card-btn" onclick="addToCart('Weekend Breakfast Combo', 8.00, '../images/image33.jpg')"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-title="artisanal bean trio pack">
+        <div class="card-img"><img src="../images/image34.jpg" alt="Bean Trio Pack"></div>
+        <div class="card-info">
+          <span class="badge badge-beans">Bean Bundle</span>
+          <h3>Artisanal Bean Trio Pack</h3>
+          <p>3 x 250g whole bean bags (Ethiopia, Colombia, Guatemala).</p>
+          <div class="card-bottom">
+            <span class="price">$28.00 <small style="text-decoration: line-through; color: #999;">$36.00</small></span>
+            <button class="card-btn" onclick="addToCart('Artisanal Bean Trio Pack', 28.00, '../images/image34.jpg')"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-title="home barista starter kit">
+        <div class="card-img"><img src="../images/image35.jpg" alt="Barista Kit"></div>
+        <div class="card-info">
+          <span class="badge">Starter Kit</span>
+          <h3>Home Barista Starter Kit</h3>
+          <p>Glass Pour-Over Dripper + 250g House Blend + Paper Filters.</p>
+          <div class="card-bottom">
+            <span class="price">$42.00 <small style="text-decoration: line-through; color: #999;">$55.00</small></span>
+            <button class="card-btn" onclick="addToCart('Home Barista Starter Kit', 42.00, '../images/image35.jpg')"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <div id="subscription-checkout-modal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+  <div class="modal-content" style="background:#fff; padding:30px; border-radius:10px; width:90%; max-width:400px; text-align:center; position:relative;">
+    <span id="close-sub-modal" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+    <h3>Complete Your Subscription</h3>
+    <p id="sub-modal-title" style="font-weight:bold; font-size:18px; margin:10px 0;"></p>
+    <p id="sub-modal-price" style="color:#27ae60; font-size:16px; margin-bottom:20px;"></p>
+    
+    <form id="sub-checkout-form">
+      <input type="text" id="sub-cust-name" placeholder="Your Name" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:5px;">
+      <input type="email" id="sub-cust-email" placeholder="Your Email" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:5px;">
+      <input type="text" id="sub-card-number" placeholder="Card Number (4242 4242...)" required maxlength="19" style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:5px;">
+      <div style="display:flex; gap:10px; margin-bottom:15px;">
+        <input type="text" id="sub-card-expiry" placeholder="MM/YY" required maxlength="5" style="width:50%; padding:10px; border:1px solid #ccc; border-radius:5px;">
+        <input type="password" id="sub-card-cvv" placeholder="CVV" required maxlength="4" style="width:50%; padding:10px; border:1px solid #ccc; border-radius:5px;">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; padding:10px; background:#6f4e37; color:#fff; border:none; border-radius:5px; cursor:pointer;">Pay & Activate Subscription</button>
+    </form>
+  </div>
+</div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Bean Boutique</h3>
+        <p>Your sanctuary for premium coffee and brewing excellence.</p>
+        </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="coffee.html">Coffee Menu</a></li>
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="events.html">Events & Workshops</a></li>
+          <li><a href="offers.html">Special Offers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Mon - Fri: 7:00 AM - 8:00 PM</p>
+        <p>Sat - Sun: 8:00 AM - 9:00 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bean Boutique. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>
